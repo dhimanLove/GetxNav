@@ -17,7 +17,23 @@ class _NavPageState extends State<NavPage> {
       actions: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.account_circle,size: 30,),
+          child: Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.light_mode),
+                onPressed: () {
+                  Get.changeTheme(ThemeData.light());
+                },
+              ),
+              const SizedBox(width: 10),
+              IconButton(
+                icon: const Icon(Icons.dark_mode),
+                onPressed: () {
+                  Get.changeTheme(ThemeData.dark());
+                },
+              ),
+            ],
+          ),
         )
       ],),
       body: Container(
@@ -69,12 +85,11 @@ class _NavPageState extends State<NavPage> {
             const SizedBox(height: 100),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.white,
                 padding: const EdgeInsets.all(20),
               ),
               onPressed: () {
-                Get.to(const Routed());
+                Get.to(const Routed(),duration: 1.seconds,transition: Transition.cupertino);
+
               },
               child: const Text('Navigate to Routed Page',style: TextStyle(fontSize: 20),),
             ),

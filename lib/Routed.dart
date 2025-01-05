@@ -26,15 +26,32 @@ class _NavPageState extends State<Routed> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Nav Page'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
-        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.light_mode),
+                  onPressed: () {
+                    Get.changeTheme(ThemeData.light());
+                  },
+                ),
+                const SizedBox(width: 10),
+                IconButton(
+                  icon: const Icon(Icons.dark_mode),
+                  onPressed: () {
+                    Get.changeTheme(ThemeData.dark());
+                  },
+                ),
+              ],
+            ),
+          )
+        ],
+
       ),
       body: Container(
-        color: Colors.black,
+        color: Color(0xff001310),
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
