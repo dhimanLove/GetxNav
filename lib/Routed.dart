@@ -88,6 +88,9 @@ class _NavPageState extends State<Routed> {
                   },
               ),
             ),
+           Text(Get.parameters['name']??"",style: TextStyle(color: Colors.yellow,fontSize: 30),),
+           Text(Get.arguments,style: TextStyle(color: Colors.white70,fontSize: 20),),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: Get.back,
               child: const Text('Back'),

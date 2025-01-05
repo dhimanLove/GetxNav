@@ -82,14 +82,20 @@ class _NavPageState extends State<NavPage> {
                 ),
               ),
             ),
+
             const SizedBox(height: 100),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(20),
               ),
               onPressed: () {
-                Get.to(const Routed(),duration: 1.seconds,transition: Transition.cupertino);
-
+              //  Get.toNamed('/Routed?name=Getx Parameter&Value=3.14 Prameter',); this is for named route with parameters
+                Get.to(const Routed(),duration: 1.seconds,
+                    transition: Transition.cupertino,
+                    popGesture:true,
+                   // preventDuplicates: false,
+                    curve: Curves.easeInOut, // smoothness of transition
+                    arguments: 'Getx se Navpage ka argument Data');
               },
               child: const Text('Navigate to Routed Page',style: TextStyle(fontSize: 20),),
             ),
@@ -134,3 +140,16 @@ class _NavPageState extends State<NavPage> {
     );
   }
 }
+
+//Get.off(Routed()); isse kya hoga ke piche wala pag ayega hi nai stack me dobara se
+//Get.offAll(Routed()); issse ye hoga ke while we reached 21th page, we can't go back to 1st page,and sb ht jayege piche se stack se
+//Get.to(Routed()); isse kya hoga ke piche wala page bhi stack me rahega
+//Get.to(Routed(),fullscreenDialog: true); isse kya hoga ke piche wala page bhi stack me rahega, but fullscreen dialog me khulega
+//Get.to(Routed(),duration: 1.seconds,transition: Transition.cupertino,popGesture:true,curve: Curves.easeInOut,arguments: 'Getx se Navpage ka transferred Data');
+// isse kya hoga ke piche wala page bhi stack me rahega, but duration 1 second me transition hoga, popGesture enable hoga, curve smooth hoga, and arguments bhi pass hoga
+//Get.toNamed('/routed'); isse kya hoga ke piche wala page bhi stack me rahega, but named route se navigation hoga
+//Get.toNamed('/routed',arguments: 'Getx se Navpage ka transferred Data'); isse kya hoga ke piche wala page bhi stack me rahega, but named route se navigation hoga, and arguments bhi pass hoga
+//Get.toNamed('/routed',arguments: 'Getx se Navpage ka transferred Data',parameters: {'name':'Getx'}); isse kya hoga ke piche wala page bhi stack me rahega, but named route se navigation hoga, and arguments bhi pass hoga, and parameters bhi pass hoga
+//Get.toNamed('/routed',arguments: 'Getx se Navpage ka transferred Data',parameters: {'name':'Getx'},id: 1); isse kya hoga ke piche wala page bhi stack me rahega, but named route se navigation hoga, and arguments bhi pass hoga, and parameters bhi pass hoga, and id bhi pass hoga
+//Get.toNamed('/routed',arguments: 'Getx se Navpage ka transferred Data',parameters: {'name':'Getx'},id: 1,preventDuplicates: false); isse kya hoga ke piche wala page bhi stack me rahega, but named route se navigation hoga, and arguments bhi pass hoga, and parameters bhi pass hoga, and id bhi pass hoga, and preventDuplicates bhi pass hoga
+
