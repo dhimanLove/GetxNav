@@ -13,14 +13,20 @@ class _NavPageState extends State<NavPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Nav Page')),
+      appBar: AppBar(title: const Text('Nav Page',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600),),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.account_circle,size: 30,),
+        )
+      ],),
       body: Container(
-        color: Colors.black,
+        color: Color(0xff001310),
         child: Column(
           children: [
             Container(
               height: 200,
-              color: Colors.black,
+              color: Color(0xff001310),
               child: Center(
                 child: InkWell(
                   child: const Text(
@@ -41,7 +47,7 @@ class _NavPageState extends State<NavPage> {
             ),
             Container(
               height: 200,
-              color: Colors.black,
+              color: Color(0xff001310),
               child: Center(
                 child: InkWell(
                   child: const Text(
@@ -60,7 +66,7 @@ class _NavPageState extends State<NavPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 200),
+            const SizedBox(height: 100),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.black,
@@ -71,6 +77,42 @@ class _NavPageState extends State<NavPage> {
                 Get.to(const Routed());
               },
               child: const Text('Navigate to Routed Page',style: TextStyle(fontSize: 20),),
+            ),
+            const SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: () {
+                Get.bottomSheet(
+                  Container(
+                    height: 200,
+                    width: double.infinity,
+                    color:Colors.black,
+                    child: Column(
+                      children: [
+                        Center(child: Column(
+                          children: [
+                            Text(
+                                'Welcome To the Getx BottomSheet',
+                                style: TextStyle(fontSize: 25,
+                                    color:Colors.white
+                                ),
+                            ),
+                            const SizedBox(height: 20),
+                            Text(
+                              'Getx is a powerful state management library for Flutter',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white70,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                        )],
+                    ),
+                  ),
+                );
+              },
+              child: const Text('Bottomsheet'),
             ),],
         ),
       ),
